@@ -10,7 +10,7 @@
             <img src="{% static 'Prro Coders.jpg' %}" alt="" id="icon">
             <h2 id="user_email">{{ request.user.email }}</h2>
         </div>
-        
+
 
 
 
@@ -18,44 +18,107 @@
 
     <body>
         <!-- الشريط الجانبي -->
-        <div class="slidbar">
-            <div class="top">
-                <img src="{% static 'Prro Coders.jpg' %}" id="icon" alt="Icon">
-                <h2 id="user_email">{{ request.user.email }}</h2>
-            </div>
+    <!--<div class="slidbar">-->
+    <!--    <div class="top">-->
+    <!--        <img src="{% static 'Prro Coders.jpg' %}" id="icon" alt="Icon">-->
+    <!--        <h2 id="user_email">{{ request.user.email }}</h2>-->
+    <!--    </div>-->
 
-            <ul class="ul">
-                <li id="inbox"><i class="fas fa-inbox"></i> Inbox</li>
-                <li id="sent"><i class="fas fa-paper-plane"></i> Sent</li>
-                <li id="archived"><i class="fas fa-archive"></i> Archived</li>
-                <a href="{% url 'logout' %}" id="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
-            </ul>
-            
-            <button id="compose">
-                <i class="fas fa-pencil-alt"></i> Compose
-            </button>
-        </div>
-    
-        <!-- المحتوى الرئيسي -->
-        <!-- <div class="content">
-            <h1>Welcome to Gmail Clone</h1>
-            <p>Here is the content of the page. Enjoy reading your emails!</p>
-        </div>
-    </body> -->
-    
-    
+        <!-- الزرار الخاص بالهامبورجر -->
+
+
+        <!-- قائمة الروابط (بتظهر لما تضغط على الهامبورجر) -->
+    <!--    <ul class="ul">-->
+    <!--        <li id="inbox"><i class="fas fa-inbox"></i> Inbox</li>-->
+    <!--        <li id="sent"><i class="fas fa-paper-plane"></i> Sent</li>-->
+    <!--        <li id="archived"><i class="fas fa-archive"></i> Archived</li>-->
+    <!--        <a href="{% url 'logout' %}" id="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>-->
+    <!--    </ul>-->
+
+        <!-- الزرار الخاص بـ Compose (برضه يختفي على الشاشات الصغيرة) -->
+    <!--    <button id="compose">-->
+    <!--        <i class="fas fa-pencil-alt"></i> Compose-->
+    <!--    </button>-->
+    <!--</div>-->
+
+
+
+
+    <!--<div class="menu-toggle" onclick="toggleMenu()">-->
+    <!--    <div class="hamburger"></div>-->
+    <!--    <div class="hamburger"></div>-->
+    <!--    <div class="hamburger"></div>-->
+    <!--</div>-->
+    <!--<script>-->
+    <!--    function toggleMenu() {-->
+    <!--        document.querySelector('.slidbar').classList.toggle('open');-->
+    <!--        const hamburgers = document.querySelectorAll('.hamburger');-->
+    <!--        hamburgers.forEach(hamburger => hamburger.classList.toggle('active'));-->
+    <!--    }-->
+    <!--</script>-->
+
+
+
+
+<!-- زر الهامبورجر -->
+<div class="menu-toggle" onclick="toggleMenu()">
+    <div class="hamburger"></div>
+    <div class="hamburger"></div>
+    <div class="hamburger"></div>
+</div>
+
+
+<div class="slidbar">
+    <!-- زر الإغلاق في الشريط الجانبي على الموبايل -->
+
+
+
+    <div class="top">
+        <img src="{% static 'Prro Coders.jpg' %}" id="icon" alt="Icon">
+        <h2 id="user_email">{{ request.user.email }}</h2>
+    </div>
+
+    <ul class="ul">
+        <li id="inbox"><i class="fas fa-inbox"></i> Inbox</li>
+        <li id="sent"><i class="fas fa-paper-plane"></i> Sent</li>
+        <li id="archived"><i class="fas fa-archive"></i> Archived</li>
+        <a href="{% url 'logout' %}" id="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    </ul>
+
+    <button id="compose">
+        <i class="fas fa-pencil-alt"></i> Compose
+    </button>
+</div>
+
+<script>
+    // الدالة لتبديل القائمة عند الضغط على الهامبورجر
+    function toggleMenu() {
+        const sidebar = document.querySelector('.slidbar');
+        sidebar.classList.toggle('open');  // تفعيل أو إلغاء تفعيل الـ sidebar
+        const hamburgers = document.querySelectorAll('.hamburger');
+        hamburgers.forEach(hamburger => hamburger.classList.toggle('active'));  // تفعيل الـ hamburger
+    }
+</script>
+
+
+
+
+
+
+
+
 
 
     <div class="content">
 
         <div id="emails-view">
         </div>
-    
+
         <div id="emails-detal-view">
             <button id="delete-email" class="btn btn-danger">Delete</button>
 
         </div>
-    
+
         <div id="compose-view">
             <h3>New Email</h3>
             <form id="compose-form">

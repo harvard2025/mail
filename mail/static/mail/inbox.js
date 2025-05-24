@@ -4,7 +4,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let emailText = emailElement.textContent // الحصول على النص بدون مسافات زائدة
     let username = emailText.split('@')[0]; // استخراج الجزء قبل @
     emailElement.textContent = username; // تحديث العنصر
-  
+
+
+
+
+    // تحديد العناصر
+// تحديد العناصر
+// تحديد العناصر
+// JavaScript لفتح وإغلاق الشريط الجانبي عند الضغط على الزر
+
+    function toggleMenu() {
+        document.querySelector('.slidbar').classList.toggle('open');
+        const hamburgers = document.querySelectorAll('.hamburger');
+        hamburgers.forEach(hamburger => hamburger.classList.toggle('active'));
+    }
+
+
 
 
 
@@ -45,7 +60,7 @@ function compose_email() {
 }
 
 function load_mailbox(mailbox) {
-  
+
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
@@ -64,10 +79,10 @@ function load_mailbox(mailbox) {
       // list-group-item
       newEmail.className = 'new_email'
 
-      
+
       let sender = singleEmail.sender // الحصول على النص بدون مسافات زائدة
       let sinder_sp = sender.split('@')[0]; // استخراج الجزء قبل @
-      
+
 
       newEmail.innerHTML = `
         <p class='single_sender' >${sinder_sp}</p>
@@ -87,12 +102,12 @@ function load_mailbox(mailbox) {
 
 function send_email(event){
   event.preventDefault();
-  
-    // 
+
+    //
     const recipients = document.querySelector('#compose-recipients').value;
     const subject = document.querySelector('#compose-subject').value;
     const body = document.querySelector('#compose-body').value;
-  
+
     // Send to back end
 
     fetch('/emails', {
@@ -115,7 +130,7 @@ function send_email(event){
 
 
 function view_emil(id){
-  
+
   fetch(`/emails/${id}`)
   .then(response => response.json())
   .then(email => {
@@ -126,10 +141,10 @@ function view_emil(id){
     document.querySelector('#emails-view').style.display = 'none';
     document.querySelector('#compose-view').style.display = 'none';
     document.querySelector('#emails-detal-view').style.display = 'block';
-    document.querySelector('#emails-detal-view').innerHTML = 
+    document.querySelector('#emails-detal-view').innerHTML =
     `
     <ul class="v_email">
-      
+
       <li class="sender"><strong></strong>${email.sender}</li>
       <li class="recipients">To: ${email.recipients}</li>
 
@@ -173,9 +188,9 @@ function view_emil(id){
     btn_reply.innerHTML = 'Reply';
     btn_reply.className = 'btn btn-info btn_reply';
 
-    
+
     btn_reply.addEventListener('click', function() {
-  
+
       compose_email()
     document.querySelector('#compose-recipients').value = `${email.sender}`;
     let subject = email.subject
@@ -184,8 +199,8 @@ function view_emil(id){
     }
     document.querySelector('#compose-subject').value = subject;
     document.querySelector('#compose-body').value = `On ${email.timestamp} ${email.sender} wrote ${email.body}`;
-    
-    
+
+
   });
     document.querySelector('#emails-detal-view').append(btn_reply);
 });

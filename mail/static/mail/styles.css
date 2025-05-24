@@ -32,7 +32,7 @@ textarea {
 .single_subject {
     font-weight: 700;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+
 }
 .single_time {}
 
@@ -58,7 +58,7 @@ textarea {
 /* تنسيق الأيقونة في الشريط الجانبي */
 #icon {
     width: 70px;
-    
+
     margin: 0px 20px;
     border-radius: 50%;
     background-color: #34b7f1; /* لون الأيقونة */
@@ -194,13 +194,13 @@ textarea {
 
 /* تأثير عند التمرير على الزر */
 #compose:hover {
-  
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.21), 
+
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.21),
                 -2px -2px 5px rgba(0, 0, 0, 0.21),
                 2px -2px 5px rgba(0, 0, 0, 0.21),
                 -2px 2px 5px rgba(0, 0, 0, 0.21);
 
-    
+
     background-color: #02abff80; /* لون أغمق عند التمرير */
 
 }
@@ -419,3 +419,229 @@ button:hover {
     line-height: 1.5;
     margin-top: 10px;
 } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Responsive*/
+
+
+
+
+
+
+
+
+
+/
+
+
+
+
+
+
+/* الشريط الجانبي */
+.slidbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.slidbar.open {
+    left: 0;
+}
+
+.ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ul li {
+    margin: 10px 0;
+}
+
+.ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* إخفاء البرجر في الشاشات الكبيرة */
+.menu-toggle {
+    display: none; /* إخفاء البرجر في الشاشات الكبيرة */
+}
+
+/* على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* يظهر البرجر في الشاشات الصغيرة */
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .hamburger {
+        /*width: 30px;*/
+        /*height: 3px;*/
+
+        position: relative;
+    }
+
+    .hamburger:before, .hamburger:after {
+        content: '';
+        width: 30px;
+        height: 3px;
+        background-color: #333;
+        position: absolute;
+        left: 0;
+    }
+
+    .hamburger:before {
+        top: -8px;
+    }
+
+    .hamburger:after {
+        top: 8px;
+    }
+
+    .slidbar {
+        left: -350px;
+
+
+    }
+
+    .slidbar.open {
+        left: 0;
+    }
+
+    /* إخفاء البرجر في الشاشات الصغيرة بعد فتح الشريط */
+    .menu-toggle.active .hamburger {
+        background-color: transparent;
+    }
+
+    .menu-toggle.active .hamburger:before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger:after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    /* تنسيق زر الإغلاق على الموبايل */
+    .close-btn {
+        display: none;
+        font-size: 30px;
+        color: #202124;
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .slidbar.open .close-btn {
+        display: block;
+    }
+}
+
+.content {
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*// View Email*/
+
+
+
+
+@media only screen and (max-width: 800px) {
+    .sender {
+        font-size: 14px;
+    }
+    .subject {
+        font-weight: 700;
+        font-size: 16px
+    }
+    .body {
+        font-size: 15px
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
